@@ -1,0 +1,21 @@
+<!-- templates/home.html-->
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<body>
+<h3> Hi {{user.username}}! </h3>
+<p> Welcome to an overview of the current GPU prices</p>
+</body>	
+
+{% else %}
+<body>
+<h3> You are not logged in </h3>
+<p>You are not logged in, please click on the button below</p>
+<a href="{% url 'login' %}">Log In</a>
+</body>
+{% endif %}
+{% endblock %}
